@@ -1,0 +1,107 @@
+/* Laptop layout min 1200px */
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+  :root {
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.75rem;
+    --h4-font-size: 1.5rem;
+  }
+}
+
+/* Mini laptop layout min 769px */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  :root {
+    --h1-font-size: 2rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.5rem;
+    --h4-font-size: 1.25rem;
+    --section-padding: 2rem 1rem;
+  }
+}
+
+/* Tablet Layout wide: 768px. */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  :root {
+    --h1-font-size: 2rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.5rem;
+    --h4-font-size: 1.25rem;
+    --section-padding: 2rem 1rem;
+  }
+
+  .e-paper-wrap {
+    flex-direction: column; /* Stack the image grid below the viewer */
+  }
+
+  .e-paper-left,
+  .e-paper-right {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  /* Selected image view adjustments */
+  .e-paper-right {
+    height: auto;
+    position: relative;
+  }
+
+  .e-paper-right img {
+    max-height: 40vh; /* Adjust image height for mobile view */
+  }
+
+  /* Display the image grid below the selected image */
+  .e-paper-left {
+    margin-top: 20px;
+  }
+
+  .nav-buttons {
+    display: none; /* Hide navigation buttons on mobile */
+  }
+}
+
+/* Mobile layout max 425 */
+
+@media (max-width: 767px) {
+  :root {
+    --h1-font-size: 1.75rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --h4-font-size: 1rem;
+  }
+
+  .e-paper-wrap {
+    flex-direction: column; /* Stack the image grid below the viewer */
+  }
+
+  .e-paper-left,
+  .e-paper-right {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  /* Selected image view adjustments */
+  .e-paper-right {
+    height: auto;
+    position: relative;
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 16px;
+  }
+
+  .e-paper-right img {
+    max-height: 40vh; /* Adjust image height for mobile view */
+  }
+
+  /* Display the image grid below the selected image */
+  .e-paper-left {
+    margin-top: 20px;
+  }
+
+  .nav-buttons {
+    display: none; /* Hide navigation buttons on mobile */
+  }
+}

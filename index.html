@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <title>Image Gallery</title>
+    <style></style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="e-paper-wrap">
+            <div class="e-paper-left order-lg-1 order-2">
+              <div class="image-grid" id="imageGrid"></div>
+              <div class="nav-buttons">
+                <button class="nav-btn" id="prevBtn">
+                  <i class="fa fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn" id="nextBtn">
+                  <i class="fa fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+            <div
+              class="e-paper-right order-lg-2 order-1"
+              id="selectedImageView"
+            >
+              <button class="close-btn" id="closeBtn">&times;</button>
+              <img id="selectedImage" src="" alt="Selected Image" />
+              <div class="image-details">
+                <h2>Image Details</h2>
+                <p>
+                  Here you can add more information about the selected image,
+                  such as title, description, or source.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./assets/js/script.js"></script>
+</html>
