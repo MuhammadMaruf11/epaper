@@ -1,110 +1,54 @@
 /* destop footer css start  */
 .footer-area {
-  background: #222;
+  background: #fbf4f4;
+  padding: 20px 0;
+  border-top: 1px solid #b6b4b6;
 }
 
-.footer-area hr {
-  border-color: #3f3f42;
-  opacity: 1;
-  margin: 0;
-}
-
-.footer-top {
-  background: var(--primary-color);
-}
-
-.footer-logo {
+.footer-logo a {
   display: inline-block;
+  width: 170px;
 }
 
-.footer-title {
-  margin-bottom: 24px;
-}
-
-.footer-widget {
-  padding: 24px 0;
-}
-
-.footer-widget ul {
+.footer-social-list ul {
   list-style: none;
 }
 
-.footer-widget ul li {
+.footer-social-list ul li {
   margin-bottom: 15px;
+  display: inline-block;
 }
 
-.footer-widget ul li:last-child {
+.footer-social-list ul li:last-child {
   margin-bottom: 0;
 }
 
-.footer-widget a {
+.footer-social-list a {
   color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
   font-size: 14px;
   font-weight: 500;
 }
 
-.footer-copy-right {
-  padding: 24px 0;
+.footer-social-list ul li:nth-child(1) a {
+  background: #3b5998;
 }
 
-.footer-copy-right p {
-  color: #fff;
+.footer-social-list ul li:nth-child(2) a {
+  background: #1da1f2;
+}
+
+.footer-social-list ul li:nth-child(3) a {
+  background: #c32aa3;
+}
+
+.footer-social-list ul li:nth-child(4) a {
+  background: #ff0000;
 }
 
 /* destop footer css end  */
-
-/* mobile footer css start  */
-
-.mobile-footer-area {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  background: #fff;
-  z-index: 99;
-}
-
-.mobile-footer-wrap {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  column-gap: 4px;
-}
-
-.mobile-footer-items {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  row-gap: 4px;
-  border-right: 1px solid #ddcd;
-  padding: 12px 0;
-}
-
-.mobile-footer-items:last-child {
-  border-right: 0;
-}
-
-.mobile-footer-items .item-icon i {
-  font-size: 24px;
-  color: var(--text-color);
-}
-
-.mobile-footer-items .item-text h6 {
-  font-size: 14px;
-  text-transform: uppercase;
-  color: var(--text-color);
-}
-
-.mobile-footer-items.active .item-icon i {
-  font-size: 24px;
-  color: var(--primary-color);
-}
-
-.mobile-footer-items.active .item-text h6 {
-  font-size: 14px;
-  text-transform: uppercase;
-  color: var(--primary-color);
-}
-
-/* mobile footer css end  */

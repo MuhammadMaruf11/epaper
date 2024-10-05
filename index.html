@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap-datepicker.min.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -17,39 +18,285 @@
     <style></style>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div class="e-paper-wrap">
-            <div class="e-paper-left order-lg-1 order-2">
-              <div class="image-grid" id="imageGrid"></div>
-              <div class="nav-buttons">
-                <button class="nav-btn" id="prevBtn">
-                  <i class="fa fa-chevron-left"></i>
-                </button>
-                <button class="nav-btn" id="nextBtn">
-                  <i class="fa fa-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-            <div
-              class="e-paper-right order-lg-2 order-1"
-              id="selectedImageView"
-            >
-              <button class="close-btn" id="closeBtn">&times;</button>
-              <img id="selectedImage" src="" alt="Selected Image" />
-              <div class="image-details">
-                <h2>Image Details</h2>
-                <p>
-                  Here you can add more information about the selected image,
-                  such as title, description, or source.
-                </p>
-              </div>
+    <header class="header-area">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="header-logo">
+              <a href="./index.html">
+                <img src="./assets/img/logo/logo.webp" alt="" />
+              </a>
             </div>
           </div>
         </div>
       </div>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            href="#offcanvasExample"
+            role="button"
+            aria-controls="offcanvasExample"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav align-items-lg-center me-auto mb-2 mb-lg-0">
+              <li class="nav-item d-none d-lg-inline-block">
+                <a
+                  class="px-2"
+                  data-bs-toggle="offcanvas"
+                  href="#offcanvasExample"
+                  role="button"
+                  aria-controls="offcanvasExample"
+                >
+                  <i class="fa fa-bars"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  >হোম</a
+                >
+              </li>
+              <li class="nav-item">
+                <div class="input-group date">
+                  <input
+                    type="text"
+                    class="form-control datepicker"
+                    value="12-02-2012"
+                    readonly
+                  />
+                  <div class="input-group-text" id="calendar-icon">
+                    <i class="fa fa-calendar-alt"></i>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  নগর সংস্করণ
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">নগর</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">ঢাকা বিভাগ</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">উপকন্ঠ</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">দক্ষিণাঞ্চল</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">উত্তরাঞ্চল</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">সিলেট</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">চট্টগ্রাম</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  প্রথম পাতা
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">প্রথম পাতা</a></li>
+                  <li><a class="dropdown-item" href="#">খবর</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">সম্পাদকীয় ও মন্তব্য</a>
+                  </li>
+                  <li><a class="dropdown-item" href="#">লোকালয়</a></li>
+                  <li><a class="dropdown-item" href="#">কিছু আলো নীল</a></li>
+                  <li><a class="dropdown-item" href="#">ঘাসফড়িং</a></li>
+                  <li><a class="dropdown-item" href="#">আনন্দ প্রতিদিন</a></li>
+                  <li><a class="dropdown-item" href="#">সমৃদ্ধি</a></li>
+                  <li><a class="dropdown-item" href="#">খেলাধুলা</a></li>
+                  <li><a class="dropdown-item" href="#">আন্তর্জাতিক</a></li>
+                  <li><a class="dropdown-item" href="#">শেষের পাতা</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  সব পাতা
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="e-paper-area">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="e-paper-wrap">
+                <div class="e-paper-left order-lg-1 order-2">
+                  <div class="image-grid" id="imageGrid"></div>
+                  <div class="nav-buttons">
+                    <button class="nav-btn" id="prevBtn">
+                      <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn" id="nextBtn">
+                      <i class="fa fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="e-paper-right order-lg-2 order-1"
+                  id="selectedImageView"
+                >
+                  <button class="close-btn" id="closeBtn">&times;</button>
+                  <img id="selectedImage" src="" alt="Selected Image" />
+                  <div class="image-details">
+                    <h2>Image Details</h2>
+                    <p>
+                      Here you can add more information about the selected
+                      image, such as title, description, or source.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer-area">
+      <div class="container-fluid">
+        <div class="row justify-content-between">
+          <div class="col-md-9">
+            <div class="footer-logo">
+              <a href="#">
+                <img src="./assets/img/logo/logo.webp" alt="logo" />
+              </a>
+            </div>
+            <div class="footer-widget">
+              <p>
+                <strong
+                  >সম্পাদক: আলমগীর হোসেন । প্রকাশক: আবুল কালাম আজাদ</strong
+                >
+              </p>
+              <p>
+                ঠিকানা: টাইমস মিডিয়া ভবন (৫ম তলা) | ৩৮৭ তেজগাঁও শিল্প এলাকা,
+                ঢাকা - ১২০৮ । ফোন: ৫৫০২৯৮৩২-৩৮
+              </p>
+              <p>
+                বিজ্ঞাপন : ৫৫০২৯৮৪২, ৫৫০২৯৮৪৩, +৮৮০১৭১৪০৮০৩৭৮ । সার্কুলেশন :
+                ৫৫০২৯৮২৯, ৫৫০২৯৮৪১
+              </p>
+              <p>
+                <small>স্বত্ব © ২০২৪ সমকাল</small>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3 text-end">
+            <div class="footer-widget">
+              <p>ফলো করুন</p>
+            </div>
+            <div class="footer-social-list">
+              <ul>
+                <li>
+                  <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- bootstrap component start -->
+
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+          <img width="125" src="./assets/img/logo/logo.webp" alt="" />
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body p-0">
+        <div class="sidebar-list">
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Online Version</a>
+            </li>
+            <li>
+              <a href="#">English Version</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+
+    <!-- bootstrap component end -->
   </body>
+  <script src="./assets/js/jquery.min.js"></script>
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/bootstrap-datepicker.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </html>

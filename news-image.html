@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OCR Zoom with Canvas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+      canvas {
+        border: 1px solid black;
+      }
+      #canvasContainer {
+        position: relative;
+      }
+      #zoomedView {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+      #zoomedImage {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+      }
+      #closeButton {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #ff4444;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvasContainer">
+      <canvas id="newspaperCanvas"></canvas>
+    </div>
+    <div id="zoomedView">
+      <img id="zoomedImage" src="" alt="Zoomed section" />
+      <button id="closeButton">Close</button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+        const canvas = document.getElementById("newspaperCanvas");
+        const ctx = canvas.getContext("2d");
+        const zoomedView = document.getElementById("zoomedView");
+        const zoomedImage = document.getElementById("zoomedImage");
+        const closeButton = document.getElementById("closeButton");
+
+        let regions = [];
+
+        // Load the image (use the uploaded image file)
+        const img = new Image();
+        img.src = "./assets/img/news-image.webp"; // Use the actual path to the uploaded image
+        img.onload = function () {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+
+          // Define the number of columns and rows
+          const columns = 3;
+          const rows = 2;
+
+          // Calculate width and height for each region
+          const regionWidth = canvas.width / columns;
+          const regionHeight = canvas.height / rows;
+
+          // Create dynamic regions based on calculated dimensions
+          for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < columns; col++) {
+              regions.push({
+                id: regions.length + 1,
+                x: col * regionWidth,
+                y: row * regionHeight,
+                width: regionWidth,
+                height: regionHeight,
+              });
+            }
+          }
+
+          // Optional: Draw outlines for each region for better visibility
+          ctx.strokeStyle = "rgba(255, 0, 0, 0.5)";
+          ctx.lineWidth = 2;
+          regions.forEach((region) => {
+            ctx.strokeRect(region.x, region.y, region.width, region.height);
+          });
+        };
+
+        // Function to handle click on the canvas
+        canvas.addEventListener("click", function (event) {
+          const rect = canvas.getBoundingClientRect();
+          const x = event.clientX - rect.left;
+          const y = event.clientY - rect.top;
+
+          const clickedRegion = regions.find(
+            (region) =>
+              x >= region.x &&
+              x <= region.x + region.width &&
+              y >= region.y &&
+              y <= region.y + region.height
+          );
+
+          if (clickedRegion) {
+            zoomIntoRegion(clickedRegion);
+          }
+        });
+
+        function zoomIntoRegion(region) {
+          // Create a new canvas for the zoomed view
+          const zoomCanvas = document.createElement("canvas");
+          const zoomCtx = zoomCanvas.getContext("2d");
+
+          zoomCanvas.width = region.width;
+          zoomCanvas.height = region.height;
+
+          zoomCtx.drawImage(
+            img,
+            region.x,
+            region.y,
+            region.width,
+            region.height,
+            0,
+            0,
+            region.width,
+            region.height
+          );
+
+          // Convert the zoomed region to an image
+          zoomedImage.src = zoomCanvas.toDataURL("image/png");
+          zoomedView.style.display = "flex";
+        }
+
+        // Close button functionality
+        closeButton.addEventListener("click", function () {
+          zoomedView.style.display = "none";
+        });
+      });
+    </script>
+  </body>
+</html>

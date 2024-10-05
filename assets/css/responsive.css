@@ -59,6 +59,10 @@
   .nav-buttons {
     display: none; /* Hide navigation buttons on mobile */
   }
+
+  .nav-item {
+    border-bottom: 1px solid #bfbfbf;
+  }
 }
 
 /* Mobile layout max 425 */
@@ -103,5 +107,9 @@
 
   .nav-buttons {
     display: none; /* Hide navigation buttons on mobile */
+  }
+
+  .nav-item {
+    border-bottom: 1px solid #bfbfbf;
   }
 }

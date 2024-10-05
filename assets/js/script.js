@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+
+    /*------------------------------------
+        image zoom slide
+    --------------------------------------*/
+
     const images = [
         "./assets/img/other-images/article-1.webp",
         "./assets/img/other-images/article-2.webp",
@@ -73,4 +79,22 @@ document.addEventListener('DOMContentLoaded', function () {
             if (e.key === "Escape") hideImage();
         }
     });
+
+
+    /*------------------------------------
+        date picker
+    --------------------------------------*/
+    // Initialize the datepicker on the input field
+    $('.datepicker').datepicker({
+        format: 'dd-mm-yyyy',
+        autoclose: true,
+        todayHighlight: true,
+    });
+
+    // Trigger the datepicker when the calendar icon is clicked
+    $('#calendar-icon').on('click', function () {
+        $('.datepicker').datepicker('show');
+    });
+
+
 });

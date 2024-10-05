@@ -90,3 +90,29 @@
   top: 10px;
   right: 10px;
 }
+
+.input-group.date input {
+  pointer-events: none;
+}
+
+.input-group-text {
+  cursor: pointer;
+}
+
+.sidebar-list ul {
+  list-style: none;
+}
+
+.sidebar-list ul li:first-child a {
+  border-top: 1px solid #bfbfbf;
+}
+
+.sidebar-list ul li a {
+  padding: 10px 10px 10px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #786464;
+  display: block;
+  transition: 0.3s;
+  border-bottom: 1px solid #bfbfbf;
+}
